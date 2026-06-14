@@ -1,0 +1,21 @@
+name: DLL Derleyici
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: MSBuild Kurulumu
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Kodu DLL Olarak Derle
+      run: |
+        cl.exe /LD /EHsc main.cpp /Fe:HackerGamerCheat.dll user32.lib gdi32.lib kernel32.lib
+
+    - name: DLL Dosyasini Yukle
+      uses: actions/upload-artifact@v4
+      with:
+        name: BenimHileDLLdosyam
+        path: HackerGamerCheat.dll
