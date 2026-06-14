@@ -7,8 +7,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: MSBuild Kurulumu
-      uses: microsoft/setup-msbuild@v2
+    - name: MSVC Geliştirici Komut Satırını Kur
+      uses: ilammy/msvc-dev-cmd@v1
 
     - name: Kodu DLL Olarak Derle
       run: |
